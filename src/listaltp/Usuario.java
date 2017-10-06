@@ -4,6 +4,7 @@ public class Usuario {
     
     private String nome;
     private Usuario proximo;
+    
 
     public String getNome() {
         return nome;

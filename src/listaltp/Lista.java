@@ -47,11 +47,12 @@ public class Lista {
                     mostraFI();
                     break;
             }
-        } while (x != 0);
+        } while (x !=0);
     }
 
     public static void menu() {
-        System.out.println("Menu ******** \n"
+        System.out.println("========================================================= \n"
+                + "Menu: \n"
                 + "1 - Criar lista. \n"
                 + "2 - Inserir usuário no início da lista. \n"
                 + "3 - inserir usuário no final da lista. \n"
@@ -62,7 +63,8 @@ public class Lista {
                 + "8 - Remover ultimo usuário da lista. \n"
                 + "9 - Mostrar lista do início ao fim. \n"
                 + "10 - Mostrar lista do fim ao início. \n"
-                + "0 - Sair.");
+                + "0 - Sair. \n"
+                + "=========================================================");
     }
 
     public static Usuario criandoU() {
@@ -240,8 +242,22 @@ public class Lista {
 
     }
 
-    public static int pedeInt(String m, int min, int max) {
+    public static int pedeInt(String msg, int min, int max) {
         int retorno = min - 1;
+        boolean erro;
+        do {
+            erro = false;
+            Scanner scan = new Scanner(System.in);
+            try {
+                System.out.println(msg);
+                retorno = scan.nextInt();
+                if (retorno < min || retorno > max) {
+                    System.out.println("Informe um valor de " + min + " a " + max);
+                }
+            } catch (Exception e) {
+                erro = true;
+            }
+        } while (retorno < min || retorno > max || erro);
         return retorno;
     }
 
