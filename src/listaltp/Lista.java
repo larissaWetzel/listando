@@ -140,19 +140,19 @@ public class Lista {
         if (existe) {
             System.out.println("O nome existe na lista");
         } else {
-            System.out.println("O nome existe na lista");
+            System.out.println("O nome não existe na lista");
         }
 
     }
 
     public static void removeEspecifico() {
-        if (qnt == 0) {
+        if (inicio == null) {
             System.out.println("Lista vazia \n"
                     + "...craindo nova lista...");
             criaLista();
         }
         Usuario atual;
-        String nome = (pedeString("Informe o nome a ser excluído", 1, 100));
+        String nome = (pedeString("Informe o nome a ser excluído", 1, 50));
         if (nome.equals(inicio.getNome())) {
             removeP();
         } else if (nome.equals(fim.getNome())) {
@@ -165,6 +165,9 @@ public class Lista {
                     anterior.setProximo(atual.getProximo());
                     System.out.println("O nome: " + nome + ", foi removido com succeso");
                     break;
+                } else {
+                    System.out.println("O nome informado não está na lista.");
+                    removeEspecifico();
                 }
                 atual = atual.getProximo();
             }
